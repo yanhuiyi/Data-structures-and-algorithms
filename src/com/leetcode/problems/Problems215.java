@@ -23,8 +23,6 @@ public class Problems215 {
                 int temp = nums[l];
                 nums[l] = nums[r];
                 nums[r] = temp;
-               //l++;
-               //r--;
                 ++l;
                 --r;
             }
