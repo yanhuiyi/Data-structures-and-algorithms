@@ -3,7 +3,7 @@ package com.leetcode.problems;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SlidingWindowOptimized {
+public class Problems3 {
     public static int lengthOfLongestSubstring(String s) {
         int n = s.length(), ans = 0;
         Map<Character, Integer> map = new HashMap<>(); // current index of character
@@ -32,13 +32,13 @@ public class SlidingWindowOptimized {
 
 
     public static void main(String[] args) {
-//        int ans = lengthOfLongestSubstring("ceoyvtfeiu");
-//        System.out.printf("ans: %s", ans);
+        System.out.printf("ans: %s", new Problems3().lengthOfLongestSubstring("dvdf"));
+        System.out.println();
 //
 //        int ans2 = lengthOfLongestSubstring2("ceoyvtfeiu");
 //        System.out.printf("ans: %s", ans2);
 
-        String s = "ceoyvtfeiu";
+        String s = "dvdf";
         int[] index = new int[128];
 
         for(int j = 0; j < s.length(); j++) {

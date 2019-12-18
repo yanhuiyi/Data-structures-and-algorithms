@@ -26,7 +26,7 @@ public class Problems77 {
     }
 
     public static void main(String[] args) {
-        List<List<Integer>> lists = new Problems77().combine(4, 2);
+        List<List<Integer>> lists = new Problems77().combine(4, 3);
         System.out.println(lists);
     }
 }

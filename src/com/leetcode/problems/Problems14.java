@@ -25,6 +25,8 @@ public class Problems14 {
     }
 
     public static void main(String[] args) {
+        System.out.println(new Problems14().longestCommonPrefix(new String[] {"flower", "flow", "flight"}));
+        System.out.println(new Problems14().longestCommonPrefix(new String[]{"dog", "racecar", "car"}));
         System.out.println(new Problems14().longestCommonPrefix(new String[]{"c", "c"}));
     }
 }
