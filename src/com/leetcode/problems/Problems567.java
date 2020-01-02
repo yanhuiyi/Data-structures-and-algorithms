@@ -58,7 +58,7 @@ public class Problems567 {
             char c1 = s2.charAt(right);
             if(needs.containsKey(c1)) {
                 window.put(c1, window.getOrDefault(c1, 0) + 1);
-                if(window.get(c1).equals(needs.get(c1)))
+                if(Integer.compare(window.get(c1), needs.get(c1)) == 0)
                     match++;
             }
             right++;
@@ -69,7 +69,7 @@ public class Problems567 {
                 char c2 = s2.charAt(left);
                 if (needs.containsKey(c2)) {
                     window.put(c2, window.get(c2) - 1);
-                    if (window.get(c2) < needs.get(c2))
+                    if (Integer.compare(window.get(c2), needs.get(c2)) < 0)
                         match--;
                 }
                 left++;
@@ -79,9 +79,9 @@ public class Problems567 {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Problems567().checkInclusion("ab", "eidbaooo"));
-        System.out.println(new Problems567().checkInclusion2("ab", "eidbaooo"));
+//        System.out.println(new Problems567().checkInclusion("ab", "eidbaooo"));
+//        System.out.println(new Problems567().checkInclusion2("ab", "eidbaooo"));
 //        System.out.println(new Problems567().checkInclusion("ab", "eidboaoo"));
-//        System.out.println(new Problems567().checkInclusion2("ab", "eidboaoo"));
+        System.out.println(new Problems567().checkInclusion2("ab", "eidboabo"));
     }
 }
