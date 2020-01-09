@@ -24,19 +24,17 @@ public class Problems227 {
                         stack.push(-num);
                         break;
                     case '*':
-                        result -= stack.peek();
-                        stack.push(stack.pop() * num);
-                        break;
                     case '/':
-                        result -= stack.peek();
-                        stack.push(stack.pop() / num);
+                        stack.push(op == '*' ? stack.pop() * num : stack.pop() / num);
                         break;
                 }
-
-                result += stack.peek();
                 num = 0;
                 op = c;
             }
+        }
+
+        while (!stack.isEmpty()) {
+            result += stack.pop();
         }
 
         return result;
