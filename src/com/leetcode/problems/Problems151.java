@@ -2,7 +2,7 @@ package com.leetcode.problems;
 
 public class Problems151 {
     public String reverseWords(String s) {
-        if(s == null || s.length() < 2) return s;
+        if(s == null) return s;
         char[] c = s.toCharArray();
 
         int n = c.length;
