@@ -81,16 +81,15 @@ public class Problems53 {
 
     public int maxSubArrayDP(int[] nums) {
         int n = nums.length;
-        // Each element in dp array is the current max value in position i
+        // Each element in dp array is the largest sum in current position i
         int[] dp = new int[n];
         dp[0] = nums[0];
         int max = dp[0];
         for(int i = 1; i < n; i++) {
-
             /*
                 if dp[i-1] > 0, then dp[i] = dp[i -1] + nums[i]
                 if dp[i-1] < 0, then dp[i] = nums[i]
-                dp[i] selects the max value of them
+                dp[i] selects the larger value of them
              */
             dp[i] = Math.max(dp[i - 1] + nums[i], nums[i]);
             if(dp[i] > max) {
