@@ -31,6 +31,7 @@ public class Problems53 {
         return maxSum(nums, 0, nums.length - 1);
     }
 
+    // Time Complexity: O(nlogn)
     public int maxSum(int[] nums, int start, int end) {
         if(start == end)
             return nums[start];
@@ -62,8 +63,49 @@ public class Problems53 {
         return Math.max(Math.max(leftMax, rightMax), (midLeftSum + midRightSum + nums[mid]));
     }
 
+    // Time Complexity: O(n)
+    public int maxSubArrayLinear(int[] nums) {
+        int thisSum = nums[0], maxSum = nums[0];
+
+        for(int i = 1; i < nums.length; i++) {
+            if(thisSum < 0)
+                thisSum = nums[i];
+            else
+                thisSum += nums[i];
+
+            if(thisSum > maxSum)
+                maxSum = thisSum;
+        }
+        return maxSum;
+    }
+
+    public int maxSubArrayDP(int[] nums) {
+        int n = nums.length;
+        // Each element in dp array is the current max value in position i
+        int[] dp = new int[n];
+        dp[0] = nums[0];
+        int max = dp[0];
+        for(int i = 1; i < n; i++) {
+
+            /*
+                if dp[i-1] > 0, then dp[i] = dp[i -1] + nums[i]
+                if dp[i-1] < 0, then dp[i] = nums[i]
+                dp[i] selects the max value of them
+             */
+            dp[i] = Math.max(dp[i - 1] + nums[i], nums[i]);
+            if(dp[i] > max) {
+                max = dp[i];
+            }
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
 //        System.out.println(new Problems53().maxSubArray(new int[]{-2,1,-3,4,-1,2,1,-5,4}));
         System.out.println(new Problems53().maxSubArrayDivideAndConquer(new int[]{-2,1,-3,4,-1,2,1,-5,4}));
+        System.out.println(new Problems53().maxSubArrayLinear(new int[]{-2,1,-3,4,-1,2,1,-5,4}));
+        System.out.println(new Problems53().maxSubArrayLinear(new int[]{ -2, 1}));
+        System.out.println(new Problems53().maxSubArrayDP(new int[]{-2,1,-3,4,-1,2,1,-5,4}));
+        System.out.println(new Problems53().maxSubArrayDP(new int[]{ -2, 1}));
     }
 }
