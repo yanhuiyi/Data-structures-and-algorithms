@@ -1,7 +1,5 @@
 package com.leetcode.problems;
 
-import com.huwawei.interview.Problems1;
-
 public class Problems322 {
     public int coinChange(int[] coins, int amount) {
         int[] dp = new int[amount + 1];
