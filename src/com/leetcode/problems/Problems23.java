@@ -83,6 +83,6 @@ public class Problems23 {
         }
 
 
-        System.out.println(new Problems23().mergeKLists2(new ListNode[]{l1, l2, l3}));
+        System.out.println(new Problems23().mergeKLists(new ListNode[]{l1, l2, l3}));
     }
 }
