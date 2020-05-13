@@ -9,11 +9,11 @@ public class Problems39 {
         List<List<Integer>> lists = new ArrayList<>();
         if(candidates == null || candidates.length == 0 || target < 0) return lists;
         List<Integer> list = new ArrayList<>();
-        process(0, candidates, lists, target, list);
+        backtrace(0, candidates, lists, target, list);
         return lists;
     }
 
-    private void process(int start, int[] candidates, List<List<Integer>> lists, int target, List<Integer> list) {
+    private void backtrace(int start, int[] candidates, List<List<Integer>> lists, int target, List<Integer> list) {
         if(target < 0)
             return;
         if(target == 0)
@@ -21,7 +21,7 @@ public class Problems39 {
         else {
             for (int i = start; i < candidates.length; i++) {
                 list.add(candidates[i]);
-                process(i, candidates, lists,target - candidates[i], list);
+                backtrace(i, candidates, lists,target - candidates[i], list);
                 list.remove(list.size() - 1);
             }
         }
